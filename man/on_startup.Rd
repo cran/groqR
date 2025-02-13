@@ -4,7 +4,12 @@
 \alias{on_startup}
 \title{Function to Handle Package Startup Logic}
 \usage{
-on_startup()
+on_startup(uiStartup = uiInit, serverStartup = serverInit)
+}
+\arguments{
+\item{uiStartup}{Shiny user interface.}
+
+\item{serverStartup}{Shiny server.}
 }
 \value{
 None
@@ -30,5 +35,5 @@ If any of these variables are not set (i.e., are empty strings), the function tr
 launch of a Shiny application defined by the \code{ui} and \code{server} components.
 }
 \seealso{
-\code{shiny::shinyApp}
+\code{shinyApp}
 }

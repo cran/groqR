@@ -1,7 +1,7 @@
 Type: Package
 Package: groqR
 Title: A Coding Assistant using the Fast AI Inference 'Groq'
-Version: 0.0.1
+Version: 0.0.3
 Authors@R: 
     person("Gabriel", "Kaiser", , "quantresearch.gk@gmail.com", role = c("aut", "cre"))
 Maintainer: Gabriel Kaiser <quantresearch.gk@gmail.com>
@@ -15,7 +15,7 @@ Encoding: UTF-8
 Language: en-US
 RoxygenNote: 7.3.1
 NeedsCompilation: no
-Packaged: 2024-09-19 14:14:04 UTC; Gabriel
+Packaged: 2025-02-12 20:09:52 UTC; Gabriel
 Author: Gabriel Kaiser [aut, cre]
 Repository: CRAN
-Date/Publication: 2024-09-20 13:50:12 UTC
+Date/Publication: 2025-02-13 17:50:03 UTC

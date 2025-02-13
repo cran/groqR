@@ -37,7 +37,7 @@ APIcall <- function(prompt, ...) {
     "GROQ_maxTokens", "GROQ_temperature", "GROQ_top_p"
   )) == "") && any(!sapply(c("model", "systemRole", "GROQ_API_KEY",
     "maxTokens", "temperature", "top_p"), exists))) {
-    shiny::shinyApp(ui = ui, server = server)
+    print("You need to set groq parameters.")
   }
 
   if (!exists("GROQ_API_KEY")) GROQ_API_KEY <- Sys.getenv("GROQ_API_KEY")
@@ -88,7 +88,7 @@ APIcall <- function(prompt, ...) {
       model       = model[1],
       temperature = as.numeric(temperature[1]),
       max_tokens  = as.integer(maxTokens[1]),
-      top_p       = as.integer(top_p[1]),
+      top_p       = as.numeric(top_p[1]),
       stream      = FALSE,
       stop        = NULL
     ),

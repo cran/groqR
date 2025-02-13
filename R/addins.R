@@ -55,7 +55,8 @@ runAddin_codeConverter <- function() execAddin("codeConverter")
 #' @importFrom utils getFromNamespace
 #'
 execAddin_ask <- function() {
-  ui <- miniPage(wellPanel(
+
+  uiAddin <- miniPage(wellPanel(
     # Sets the title.
     gadgetTitleBar("Ask the 'Groq'", NULL),
     # Sets the CSS style to have a horizontal scrollbar if the content overflows
@@ -66,18 +67,7 @@ execAddin_ask <- function() {
     splitLayout(
       column(
         12,
-        selectInput("model", "Model:", choices = c(
-            "llama-3.1-70b-versatile",
-            "llama-3.1-8b-instant",
-            "llama3-groq-70b-8192-tool-use-preview",
-            "llama3-groq-8b-8192-tool-use-preview",
-            "llama-guard-3-8b",
-            "llama3-70b-8192",
-            "llama3-8b-8192",
-            "mixtral-8x7b-32768",
-            "gemma-7b-it",
-            "gemma2-9b-it",
-            "whisper-large-v3"), selectize = FALSE)
+        selectInput("model", "Model:", choices = modelCall()$id, selectize = FALSE)
       ),
       column(
         12,
@@ -106,7 +96,7 @@ execAddin_ask <- function() {
     textAreaInput("response", "Response:", width = "100%", height = "150px")
   ))
 
-  server <- function(input, output, session) {
+  serverAddin <- function(input, output, session) {
     # This line sets up an observer for the `Ask` button.
     observeEvent(input$Ask, {
       chatResponse <- ask(input$question,
@@ -122,6 +112,6 @@ execAddin_ask <- function() {
     })
   }
 
-  runGadget(ui, server)
+  runGadget(uiAddin, serverAddin)
 }
 
